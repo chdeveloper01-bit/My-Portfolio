@@ -1,0 +1,200 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .port { font-family: 'DM Sans', sans-serif; color: var(--color-text-primary); background: transparent; max-width: 860px; }
+  .hero { background: #0d1117; border-radius: 16px; padding: 48px 40px; display: flex; align-items: center; gap: 36px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%); }
+  .avatar-ring { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #38bdf8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: #38bdf8; background: rgba(56,189,248,0.08); }
+  .hero-text h1 { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: #f0f6ff; line-height: 1.1; }
+  .hero-text .role { font-size: 15px; color: #38bdf8; margin: 6px 0 12px; font-weight: 500; letter-spacing: 0.04em; }
+  .hero-text .about { font-size: 13.5px; color: rgba(240,246,255,0.65); line-height: 1.7; max-width: 440px; }
+  .contact-strip { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .contact-item { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: rgba(240,246,255,0.55); text-decoration: none; }
+  .contact-item i { font-size: 15px; color: #38bdf8; }
+  .social-links { display: flex; gap: 10px; margin-top: 14px; }
+  .social-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 500; text-decoration: none; border: 1px solid rgba(56,189,248,0.35); color: #38bdf8; background: rgba(56,189,248,0.08); }
+  .social-btn i { font-size: 15px; }
+  .social-btn.linkedin { border-color: rgba(96,165,250,0.4); color: #60a5fa; background: rgba(96,165,250,0.08); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 14px; padding: 22px 24px; }
+  .card-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #38bdf8; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card-title i { font-size: 15px; }
+  .skill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-pill { font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); color: var(--color-text-primary); background: var(--color-background-secondary); }
+  .skill-pill.highlight { background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.4); color: #38bdf8; }
+  .edu-item { display: flex; gap: 12px; margin-bottom: 14px; }
+  .edu-dot { width: 8px; height: 8px; border-radius: 50%; background: #38bdf8; margin-top: 6px; flex-shrink: 0; }
+  .edu-year { font-size: 11px; font-weight: 500; color: #38bdf8; margin-bottom: 2px; }
+  .edu-deg { font-size: 13.5px; font-weight: 500; color: var(--color-text-primary); }
+  .edu-school { font-size: 12px; color: var(--color-text-secondary); }
+  .section-heading { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--color-text-secondary); text-transform: uppercase; margin: 24px 0 12px; }
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .project-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 14px; padding: 20px 22px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #38bdf8; border-radius: 3px 0 0 3px; }
+  .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+  .proj-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--color-text-primary); }
+  .proj-badge { font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 20px; background: rgba(56,189,248,0.1); color: #38bdf8; border: 0.5px solid rgba(56,189,248,0.3); white-space: nowrap; flex-shrink: 0; }
+  .proj-desc { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 12px; flex: 1; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tag { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 6px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .proj-github { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: #38bdf8; text-decoration: none; font-weight: 500; margin-top: auto; }
+  .proj-github i { font-size: 14px; }
+  .lang-pill { font-size: 12.5px; padding: 5px 14px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); color: var(--color-text-primary); background: var(--color-background-secondary); display: inline-block; margin: 4px; }
+</style>
+
+<div class="port">
+  <div class="hero">
+    <div class="avatar-ring" style="overflow:hidden;"><img src="profile.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+    <div class="hero-text">
+      <h1>Abdullah Akhtar</h1>
+      <p class="role">Backend Developer · Django & DRF</p>
+      <p class="about">Computer Science student (6th semester) with a strong interest in backend development. Currently building practical skills in Django, Django REST Framework, and Python. Passionate about building real-world applications and improving problem-solving.</p>
+      <div class="contact-strip">
+        <div class="contact-item"><i class="ti ti-mail" aria-hidden="true"></i> cdeveloper01@gmail.com</div>
+        <div class="contact-item"><i class="ti ti-phone" aria-hidden="true"></i> 03177651220</div>
+        <div class="contact-item"><i class="ti ti-map-pin" aria-hidden="true"></i> Multan, Pakistan</div>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/chdeveloper01-bit" class="social-btn" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/abdullah-akhtar-7b0504351" class="social-btn linkedin" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-code" aria-hidden="true"></i> Skills</div>
+      <div class="skill-grid">
+        <span class="skill-pill highlight">Python</span>
+        <span class="skill-pill highlight">Django</span>
+        <span class="skill-pill highlight">Django REST Framework</span>
+        <span class="skill-pill">HTML / CSS</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">PHP</span>
+        <span class="skill-pill">MS Excel</span>
+        <span class="skill-pill">MS Word</span>
+        <span class="skill-pill">PowerPoint</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-school" aria-hidden="true"></i> Education</div>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-year">2023 – 2027</div>
+          <div class="edu-deg">Bachelor's in Computer Science</div>
+          <div class="edu-school">University of Education, Multan</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-year">2020 – 2022</div>
+          <div class="edu-deg">Intermediate</div>
+          <div class="edu-school">Superior Group of College, Multan</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-year">2018 – 2020</div>
+          <div class="edu-deg">Matric</div>
+          <div class="edu-school">Govt Boys High School, Basti Nau Multan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">Projects</div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-name">Introduction App</div>
+        <span class="proj-badge">Django Model</span>
+      </div>
+      <p class="proj-desc">A beginner Django project demonstrating model creation and database management. Stores basic employee/person data including name, age, and salary fields.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">ORM</span>
+      </div>
+      <a href="https://github.com/chdeveloper01-bit/introduction" class="proj-github" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-name">Student Management API</div>
+        <span class="proj-badge">REST API</span>
+      </div>
+      <p class="proj-desc">A Django REST Framework API for managing student records. Supports full CRUD operations on student data including name, age, marks, and subject fields.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">DRF</span>
+        <span class="tag">SQLite</span>
+      </div>
+      <a href="https://github.com/chdeveloper01-bit/student-api.git" class="proj-github" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-name">Todo API</div>
+        <span class="proj-badge">REST API</span>
+      </div>
+      <p class="proj-desc">A Todo application REST API built with DRF. Manages tasks with title, description, and completion status (true/false). Clean and straightforward API design.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">DRF</span>
+        <span class="tag">CRUD</span>
+      </div>
+      <a href="https://github.com/chdeveloper01-bit/Todo-Appi" class="proj-github" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-name">Prado Car Management</div>
+        <span class="proj-badge">App + API</span>
+      </div>
+      <p class="proj-desc">A car management system with both Django app and REST API. Handles car listings with name, model, color, price, and discount fields. API under active development.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">DRF</span>
+        <span class="tag">SQLite</span>
+      </div>
+      <a href="https://github.com/chdeveloper01-bit/prado-api.git" class="proj-github" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-name">Teacher Management API</div>
+        <span class="proj-badge">REST API</span>
+      </div>
+      <p class="proj-desc">A REST API for managing teacher records built with Django REST Framework. Handles teacher data including name, age, salary, and subject fields with full CRUD support.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">DRF</span>
+        <span class="tag">SQLite</span>
+      </div>
+      <a href="https://github.com/chdeveloper01-bit/teacher-api" class="proj-github" target="_blank"><i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub</a>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:8px;">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-language" aria-hidden="true"></i> Languages</div>
+      <span class="lang-pill">English</span>
+      <span class="lang-pill">Urdu</span>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-trophy" aria-hidden="true"></i> Experience</div>
+      <p style="font-size:13.5px; color: var(--color-text-secondary); line-height:1.6;">Fresh graduate actively seeking internship opportunities in backend development. Currently upskilling with JWT authentication, Docker, and AI integration with Django.</p>
+    </div>
+  </div>
+</div>
